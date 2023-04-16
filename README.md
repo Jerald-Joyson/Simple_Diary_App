@@ -2,4 +2,4 @@
 
 simple app to write diary using android studio
 
-#on working
+# on working

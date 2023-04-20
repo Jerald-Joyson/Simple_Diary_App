@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "224889247889",
+    "project_id": "simple-diary-app",
+    "storage_bucket": "simple-diary-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224889247889:android:40ad65eb954f69b9410730",
+        "android_client_info": {
+          "package_name": "com.example.simplediaryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224889247889-ac5jvg297v3j7e15c8l11h95gudeeedu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnNCfkZDYm_mV8qTgNhhhAdiyc4VkLPNA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224889247889-ac5jvg297v3j7e15c8l11h95gudeeedu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

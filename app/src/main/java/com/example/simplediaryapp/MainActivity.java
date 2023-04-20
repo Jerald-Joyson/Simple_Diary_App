@@ -5,9 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Calendar;
 
@@ -16,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private String stringDateSelected;
     private CalendarView calendarView;
     Button writeBtn;
+    ImageButton menuBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
         calendarView = findViewById(R.id.calendarView);
         writeBtn = findViewById(R.id.writeBtn);
+        menuBtn = findViewById(R.id.menu_btn);
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
@@ -45,7 +52,26 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        menuBtn.setOnClickListener((v)->showMenu());
 
+    }
+    void showMenu(){
+        //Disply Menu
+        PopupMenu popupMenu = new PopupMenu(MainActivity.this,menuBtn);
+        popupMenu.getMenu().add("Logout");
+        popupMenu.show();
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem menuItem) {
+                if (menuItem.getTitle()=="Logout"){
+                    FirebaseAuth.getInstance().signOut();
+                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                    finish();
+                    return true;
+                }
+                return false;
+            }
+        });
     }
     public String todaysDate(){
         Calendar calendar = Calendar.getInstance();
